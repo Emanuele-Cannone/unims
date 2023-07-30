@@ -5,6 +5,7 @@ import SectionTitle from './SectionTitle.vue';
 defineEmits(['submitted']);
 
 const hasActions = computed(() => !! useSlots().actions);
+
 </script>
 
 <template>

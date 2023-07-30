@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Imports\TemplateImport;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ApiSendFileController extends Controller
 {
@@ -28,7 +30,11 @@ class ApiSendFileController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->file('excelFile'));
+
+        Excel::import(new TemplateImport, $request->file('excelFile'));
+
+
+        // TODO: Fatti tornare un json avente la riga di intestazione e tutti i valori
     }
 
     /**

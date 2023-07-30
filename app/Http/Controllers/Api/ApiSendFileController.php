@@ -30,6 +30,12 @@ class ApiSendFileController extends Controller
      */
     public function store(Request $request)
     {
+        $client= new \App\Client\ExcelApiClient();// INIZIO TEST
+        $data = [
+            "{\"col1\":\"value5\",\"col2\":\"value6\",\"col4\":\"value3\",\"col3\":\"value8\"}",
+            "{\"col1\":\"value1\",\"col2\":\"value3\",\"col4\":\"value4\",\"col3\":\"value5\"}"
+        ];
+        dd($client->new_page('prova', $data));    //FINE TEST ------ DA CAMBIARE
 
         Excel::import(new TemplateImport, $request->file('excelFile'));
 
